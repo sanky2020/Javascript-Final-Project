@@ -19,31 +19,72 @@ function getDOMTree(obj){
     let thumbnail = document.getElementById("thumbnail");
     let cartButton = document.getElementById("add2cart");
     let count = $("#count");
-
+    let foundAtIndex = -1;
     let emptyArr = [];
     let value = JSON.parse(localStorage.getItem("Products"));
-    
     if(value==""||value==null){
         count.text("0")
     }
     else{
-        count.text(value.length)
-        for(let i=0; i<value.length; i++){
-            emptyArr.push(value[i]);
-        }
+        let index = (value.length)-1;
+        count.text(value[index].allProductsCount);
     }
 
+    // function cartValue(){
+        
+    //     if(value==""||value==null){
+    //         count.text("0")
+    //     }
+    //     else{
+    //         count.text(value[0].allProductsCount)
+    //     }
+    // }
+
+    function itemsInCart(items){
+        // console.log(items)
+        let newValue = JSON.parse(localStorage.getItem("Products"));
+        // console.log(newValue)
+        if(newValue==null || newValue==undefined || newValue==""){
+            items.quantity = 1;
+            items.allProductsCount = 1
+            emptyArr.push(items);
+            localStorage.setItem("Products", JSON.stringify(emptyArr));
+            newValue = JSON.parse(localStorage.getItem("Products"));
+            // count.text(newValue.allProductsCount)
+            console.log(newValue[0].allProductsCount)
+            count.text(newValue[0].allProductsCount)
+        }
+        else if(newValue != null || newValue != undefined){
+            // newValue = JSON.parse(localStorage.getItem("Products"));
+            for(let i=0; i<newValue.length;i++){
+                if(items.id == newValue[i].id){
+                    foundAtIndex= i;
+                    break;
+                }
+            }
+            if(foundAtIndex>=0){
+                newValue[foundAtIndex].quantity += 1;
+                newValue[foundAtIndex].allProductsCount += 1;
+                localStorage.setItem("Products", JSON.stringify(newValue));
+                newValue = JSON.parse(localStorage.getItem("Products"));
+                count.text(newValue[foundAtIndex].allProductsCount);
+            }
+            else{
+                
+                items.quantity = 1;
+                let index = (newValue.length)-1;
+                items.allProductsCount = (newValue[index].allProductsCount)+1;
+                count.text(items.allProductsCount);
+                newValue.push(items);
+
+                localStorage.setItem("Products",JSON.stringify(newValue));
+                newValue = JSON.parse(localStorage.getItem("Products"));
+                
+            }
+        }
+    }
     cartButton.onclick = function(){
-        console.log(obj);
-        emptyArr.push(obj)
-        localStorage.setItem("Products", JSON.stringify(emptyArr));
-        value = JSON.parse(localStorage.getItem("Products"));
-        if(value==""||value==null){
-            count.text("0")
-        }
-        else{
-            count.text(value.length)
-        }
+        itemsInCart(obj);
     }
     
 
@@ -73,6 +114,5 @@ function getDOMTree(obj){
 }
 
 $.get(`https://5d76bf96515d1a0014085cf9.mockapi.io/product/${indexPos}`, function(res){
-    console.log(res);
     getDOMTree(res)
 })
