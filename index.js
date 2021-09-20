@@ -60,6 +60,7 @@ if(value==""||value==null){
   count.text("0")
 }
 else{
-  count.text(value.length)
+  let index = (value.length)-1;
+  count.text(value[index].allProductsCount);
 }
 
