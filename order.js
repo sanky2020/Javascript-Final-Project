@@ -10,6 +10,3 @@ value = JSON.parse(localStorage.getItem("Products"));
 if(value==""||value==null){
     count.text("0")
 }
-else{
-    count.text(value.length);
-}
