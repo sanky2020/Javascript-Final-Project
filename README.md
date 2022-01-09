@@ -8,4 +8,6 @@ Fetched data dynamically and rendered on UI.
 
 On adding the product to cart incremented the cart count, and if same product is added more than once just incremented the particular product count.
 
-Upon checkout the cart becomes empty.
+On clicking on cart you will be redirected to checkout page where you will see details of all the products added in cart including their respective quantity.
+
+"Place order" button has no functionality as such.
