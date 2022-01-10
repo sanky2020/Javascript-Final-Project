@@ -12,7 +12,10 @@ for(let i=0; i<value.length;i++){
 
 //displaying number count for items added in cart
 if(value==""||value==null){
-    count.text("0")
+    count.text("0");
+    mainSection.innerHTML = `
+    <h1 style="text-align: center">Cart is Empty</h1>
+    <p style="text-align: center">Wanna place orders! <button id="add2cart">Click here</button></p>`
 }
 else{
     let index = (value.length)-1;
@@ -31,6 +34,10 @@ else{
         </div>
     </div>`
 }
+
+$("#add2cart").click(function(){
+    location.assign("./index.html");
+})
 
 //displaying cards for each item added in cart.
 let totalItems= document.getElementById("total-items");
