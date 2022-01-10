@@ -27,7 +27,7 @@ else{
         <div id="total-amount" class="card">
             <h2>Total Amount</h2>
             <p>Amount: Rs ${totalPrice}</p>
-            <a href="#"><button id="checkout">Place Order</button></a>
+            <a href="./order.html"><button id="checkout">Place Order</button></a>
         </div>
     </div>`
 }
