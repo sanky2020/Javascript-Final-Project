@@ -1,6 +1,6 @@
 # Javascript-Final-Project
 
-Click here for => <a href="https://javascript-final-project.glitch.me/">Live Preview</a>
+Live Preview => https://javascript-final-project.vercel.app/
 
 Implemented carousel for the sliding banners
 
@@ -10,4 +10,4 @@ On adding the product to cart incremented the cart count, and if same product is
 
 On clicking on cart you will be redirected to checkout page where you will see details of all the products added in cart including their respective quantity.
 
-"Place order" button has no functionality as such.
+"Place order" button resets the cart count value to zero and redirects to Thank you page, Here we have added a button if the client wants to make a new order accordingly he is redirected to home page..
