@@ -10,3 +10,6 @@ value = JSON.parse(localStorage.getItem("Products"));
 if(value==""||value==null){
     count.text("0")
 }
+$("#add2cart").click(function(){
+    location.assign("./index.html");
+})
