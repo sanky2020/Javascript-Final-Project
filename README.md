@@ -2,7 +2,7 @@
 
 Live Preview => https://javascript-final-project.vercel.app/
 
-Implemented carousel for the sliding banners
+Implemented Sliding banners using Owl carousel.
 
 Fetched data dynamically and rendered on UI.
 
