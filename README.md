@@ -1,6 +1,9 @@
 # Javascript-Final-Project
 
 Live Preview => https://javascript-final-project.vercel.app/
+![image](https://user-images.githubusercontent.com/69984129/150869664-7cdb05eb-fd1e-4b8a-a34d-0d90033a30f5.png)
+
+
 
 Implemented Sliding banners using Owl carousel.
 
